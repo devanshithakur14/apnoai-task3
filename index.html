@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Udaan Collective is a community initiative concept focused on volunteering and environmental awareness.">
+<title>Udaan Collective | Community for Change</title>
+
+<style>
+:root {
+  --green: #315b43;
+  --green-dark: #203f2e;
+  --cream: #f8f7f1;
+  --yellow: #e8edb5;
+  --text: #292f29;
+  --muted: #73796f;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 88%;
+  max-width: 1080px;
+  margin: auto;
+}
+
+/* Navigation */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid #e6e7df;
+}
+
+.nav-inner {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  color: var(--green);
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #9b9f56;
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: var(--green);
+}
+
+.nav-links .nav-button {
+  background: var(--green);
+  color: white;
+  padding: 10px 17px;
+  border-radius: 5px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--green);
+}
+
+/* Hero */
+
+.hero {
+  padding: 75px 0;
+  background: #eeefe3;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.tagline {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 17px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5vw, 57px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: var(--green);
+}
+
+.hero p {
+  color: #62695f;
+  font-size: 16px;
+  margin-bottom: 27px;
+  max-width: 470px;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 21px;
+  background: var(--green);
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.button:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+.button-light {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid #b7c3b4;
+  margin-left: 8px;
+}
+
+.button-light:hover {
+  color: white;
+}
+
+.hero-image {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* General sections */
+
+section {
+  padding: 75px 0;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 32px;
+}
+
+.section-heading h2,
+.about-text h2,
+.join-text h2,
+.contact-text h2 {
+  font-size: clamp(27px, 3.5vw, 37px);
+  line-height: 1.25;
+  letter-spacing: -1px;
+  margin-bottom: 13px;
+}
+
+.section-heading p,
+.about-text p,
+.join-text p,
+.contact-text p {
+  color: var(--muted);
+}
+
+/* About */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-image {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+}
+
+.text-link {
+  display: inline-block;
+  color: var(--green);
+  font-weight: 700;
+  margin-top: 8px;
+  border-bottom: 1px solid #a8b7a7;
+}
+
+/* Focus areas */
+
+.focus {
+  background: #e9ede3;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e3e6dc;
+  padding: 25px;
+  border-radius: 7px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(30, 55, 35, 0.08);
+}
+
+.card-icon {
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 9px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Activities */
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.activity {
+  background: white;
+  border: 1px solid #e4e5dd;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.activity img {
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+}
+
+.activity-content {
+  padding: 21px;
+}
+
+.activity-content h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.activity-content p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Join us */
+
+.join {
+  padding-top: 10px;
+}
+
+.join-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--yellow);
+  border-radius: 8px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.join-text {
+  padding: 38px;
+}
+
+.join-text p {
+  margin-bottom: 22px;
+}
+
+.join-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+/* Contact */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-text p {
+  margin-bottom: 16px;
+}
+
+.contact-box {
+  background: white;
+  border: 1px solid #e4e5dd;
+  border-radius: 7px;
+  padding: 28px;
+}
+
+.contact-box h3 {
+  margin-bottom: 10px;
+}
+
+.contact-box p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.contact-box a {
+  margin-top: 4px;
+}
+
+/* Footer */
+
+footer {
+  background: var(--green-dark);
+  color: white;
+  padding: 30px 0 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #4c6654;
+  align-items: center;
+}
+
+.footer-top p {
+  max-width: 430px;
+  color: #d4ddd2;
+  font-size: 13px;
+}
+
+.footer-bottom {
+  padding-top: 17px;
+  font-size: 12px;
+  color: #c4d0c2;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Scroll animation */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile responsive design */
+
+@media (max-width: 760px) {
+  .container {
+    width: 90%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    padding: 15px 5%;
+    background: white;
+    border-bottom: 1px solid #e6e7df;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .nav-links .nav-button {
+    text-align: center;
+    margin-top: 7px;
+  }
+
+  .hero {
+    padding: 48px 0;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .join-panel,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 41px;
+  }
+
+  .hero-image {
+    height: 270px;
+  }
+
+  section {
+    padding: 55px 0;
+  }
+
+  .cards,
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    height: 270px;
+  }
+
+  .activity img {
+    height: 220px;
+  }
+
+  .join-text {
+    padding: 27px;
+  }
+
+  .join-image {
+    height: 240px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">ud<span>aa</span>n.</a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#focus">Our Focus</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#contact" class="nav-button">Get Involved</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="home">
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="tagline">People · Purpose · Progress</div>
+        <h1>Small steps can create <span>real change.</span></h1>
+        <p>
+          We believe that a better community starts with people who care.
+          Join us in spreading awareness, protecting our environment and
+          making a difference through everyday actions.
+        </p>
+
+        <a href="#activities" class="button">Explore Activities</a>
+        <a href="#about" class="button button-light">Our Story</a>
+      </div>
+
+      <img class="hero-image reveal"
+        src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1000&q=80"
+        alt="People working together on a community initiative">
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container about-grid">
+      <img class="about-image reveal"
+        src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=900&q=80"
+        alt="Volunteers working together"
+        loading="lazy">
+
+      <div class="about-text reveal">
+        <div class="tagline">Who we are</div>
+        <h2>A community that cares is a community that grows.</h2>
+        <p>
+          Udaan Collective is a proposed community initiative built around
+          a simple idea: everyone can contribute something meaningful.
+        </p>
+        <p>
+          From environmental awareness to helping with local activities,
+          we want to make it easier for people to come together, share ideas
+          and take small steps towards a better future.
+        </p>
+        <a href="#focus" class="text-link">What we care about →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="focus" id="focus">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="tagline">Our focus</div>
+        <h2>Good change starts with everyday choices.</h2>
+        <p>
+          We focus on practical ideas that people can understand, take part
+          in and bring into their everyday lives.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-icon">♻️</div>
+          <h3>Waste Awareness</h3>
+          <p>
+            Encourage waste segregation, responsible disposal and habits
+            that help reduce waste.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">🌱</div>
+          <h3>Greener Spaces</h3>
+          <p>
+            Promote cleaner surroundings and encourage people to care for
+            the spaces everyone shares.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">📚</div>
+          <h3>Learning Together</h3>
+          <p>
+            Share useful information through awareness activities and
+            learning sessions for young people.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="tagline">Get involved</div>
+        <h2>There is always a way to help.</h2>
+        <p>
+          You can contribute your time, your ideas or simply help spread
+          awareness. Start with something small.
+        </p>
+      </div>
+
+      <div class="activity-grid">
+        <article class="activity reveal">
+          <img
+            src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80"
+            alt="Recycling and waste segregation"
+            loading="lazy">
+          <div class="activity-content">
+            <h3>Waste Collection Drives</h3>
+            <p>
+              Help spread awareness about recycling, waste segregation
+              and responsible disposal.
+            </p>
+          </div>
+        </article>
+
+        <article class="activity reveal">
+          <img
+            src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80"
+            alt="People taking part in a group activity"
+            loading="lazy">
+          <div class="activity-content">
+            <h3>Community Clean-ups</h3>
+            <p>
+              Encourage people to work together to keep shared spaces
+              cleaner and more welcoming.
+            </p>
+          </div>
+        </article>
+
+        <article class="activity reveal">
+          <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
+            alt="Students learning in a classroom"
+            loading="lazy">
+          <div class="activity-content">
+            <h3>Awareness Sessions</h3>
+            <p>
+              Make environmental topics easier to understand through
+              simple discussions and learning activities.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container">
+      <div class="join-panel reveal">
+        <div class="join-text">
+          <div class="tagline">Be part of it</div>
+          <h2>You do not need to change the world in one day.</h2>
+          <p>
+            Start by helping with one activity, sharing an idea or
+            encouraging someone else to participate. Small actions
+            matter when we take them together.
+          </p>
+          <a href="#contact" class="button">Let's Get Started</a>
+        </div>
+
+        <img class="join-image"
+          src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?auto=format&fit=crop&w=900&q=80"
+          alt="Community members joining a shared activity"
+          loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact-grid">
+      <div class="contact-text reveal">
+        <div class="tagline">Get in touch</div>
+        <h2>Have an idea? We would love to hear it.</h2>
+        <p>
+          Interested in volunteering, organising an awareness activity
+          or sharing an idea? Reach out and start a conversation.
+        </p>
+        <p>
+          This is a student website concept. Add a verified organisation
+          email or contact link here if the initiative becomes a real client.
+        </p>
+      </div>
+
+      <div class="contact-box reveal">
+        <h3>Ready to contribute?</h3>
+        <p>
+          Think about one thing you could do to help your community.
+          It could be sharing information, volunteering your time or
+          helping organise an activity.
+        </p>
+        <a href="mailto:hello@example.com?subject=Community%20Volunteering"
+           class="button">Contact the Initiative</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="#home" class="logo" style="color:white">ud<span>aa</span>n.</a>
+      <p>
+        A student-designed community initiative concept focused on
+        awareness, volunteering and small actions that matter.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Udaan Collective · Apno-AI task 3</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+  const isOpen = navLinks.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded", isOpen);
+  menuToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu"
+  );
+
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+    menuToggle.textContent = "☰";
+  });
+});
+
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach(function (item) {
+    observer.observe(item);
+  });
+} else {
+  revealItems.forEach(function (item) {
+    item.classList.add("visible");
+  });
+}
+</script>
+
+</body>
+</html>
